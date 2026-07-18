@@ -15,7 +15,7 @@
 | **Alumno**             | *Martín Roel*                 |
 | **Matrícula**          | *202300077*                       |
 | **Profesor**           | *Ing. Jonathan*             |
-| **Universidad**        | *Universidad Politénica de la Región Ribereña*                     |
+| **Universidad**        | *Universidad Politécnica de la Región Ribereña*                     |
 | **Periodo**            | *Noveno Cuatri*         |
 
 ---
@@ -160,3 +160,187 @@ Entre los componentes gráficos implementados se encuentran:
 * Temporizador en tiempo real.
 * Navegación entre múltiples pantallas.
 
+---
+
+# Tecnologías y herramientas utilizadas
+
+Para el desarrollo de **Hot Coffee** se utilizaron diferentes tecnologías, herramientas y recursos que permitieron construir una aplicación multiplataforma, organizada y funcional.
+
+---
+
+## Lenguajes y frameworks
+
+### Dart
+
+Lenguaje de programación principal utilizado para desarrollar la lógica de la aplicación.
+
+Se utilizó para implementar:
+
+* Manejo de estados.
+* Programación asíncrona.
+* Navegación entre pantallas.
+* Consumo de servicios REST.
+* Manipulación de archivos y bases de datos.
+
+---
+
+### Flutter
+
+Framework principal utilizado para la construcción de la aplicación móvil.
+
+Flutter permitió desarrollar una interfaz multiplataforma utilizando un único código base, facilitando la ejecución del proyecto tanto en Windows como en Android.
+
+Versión utilizada:
+
+* **Flutter 3.44**
+
+---
+
+### Material Design
+
+Sistema de diseño utilizado como base para la construcción de la interfaz gráfica.
+
+Se utilizaron componentes proporcionados por Flutter como:
+
+* Scaffold.
+* AppBar.
+* Drawer.
+* Cards.
+* Buttons.
+* TextFields.
+* Switches.
+* Dialogs.
+* Sliders.
+
+---
+
+# Almacenamiento y manejo de información
+
+## SQLite
+
+Sistema de almacenamiento local utilizado para guardar la información de los usuarios registrados dentro de la aplicación.
+
+La base de datos permite mantener la información incluso después de cerrar la aplicación.
+
+---
+
+## Sqflite
+
+Paquete utilizado para integrar SQLite dentro de Flutter y realizar operaciones como:
+
+* Creación de tablas.
+* Inserción de registros.
+* Consultas.
+* Validación de usuarios.
+
+---
+
+## BCrypt
+
+Algoritmo utilizado para proteger las contraseñas almacenadas.
+
+En lugar de guardar contraseñas en texto plano, la aplicación almacena una versión cifrada de estas para mejorar la seguridad de la información.
+
+---
+
+# Comunicación con servicios externos
+
+## HTTP
+
+Librería utilizada para realizar peticiones HTTP hacia servicios REST externos.
+
+Fue implementada para demostrar operaciones CRUD mediante solicitudes:
+
+* GET.
+* POST.
+* PUT.
+* PATCH.
+* DELETE.
+
+---
+
+## JSONPlaceholder
+
+API pública utilizada como servicio de prueba para la implementación del cliente REST.
+
+Permitió realizar pruebas de comunicación entre la aplicación y un servicio externo sin necesidad de crear un servidor propio.
+
+---
+
+# Herramientas de desarrollo
+
+## Visual Studio Code
+
+Editor principal utilizado para la escritura, organización y depuración del código fuente.
+
+Extensiones utilizadas:
+
+* Dart.
+* Flutter.
+* Flutter Widget Snippets.
+* Error Lens.
+* Material Icon Theme.
+
+---
+
+## Android Studio
+
+Herramienta utilizada para:
+
+* Administración de dispositivos virtuales Android.
+* Instalación de SDKs necesarios.
+* Pruebas de ejecución en Android.
+
+---
+
+## Git y GitHub
+
+Utilizados para el control de versiones y almacenamiento remoto del proyecto.
+
+Git permitió llevar un historial de cambios mediante commits organizados, mientras que GitHub fue utilizado como plataforma de alojamiento del repositorio.
+
+---
+
+# Herramientas de diseño
+
+El diseño de la aplicación fue realizado utilizando los componentes visuales proporcionados por Flutter y Material Design.
+
+Se buscó mantener una interfaz:
+
+* Simple.
+* Intuitiva.
+* Consistente.
+* Adaptable a diferentes tamaños de pantalla.
+
+La identidad visual del proyecto se desarrolló tomando como referencia la temática de una cafetería moderna, utilizando elementos relacionados con café y una navegación sencilla para mejorar la experiencia del usuario.
+
+---
+
+# Herramientas de investigación y documentación
+
+Durante el desarrollo se consultaron diferentes fuentes de información técnica:
+
+* Documentación oficial de Flutter.
+* Documentación oficial de Dart.
+* Documentación de paquetes utilizados.
+* Ejemplos y referencias de comunidades de desarrollo.
+
+Estas fuentes fueron utilizadas para comprender el funcionamiento de las tecnologías implementadas y resolver problemas encontrados durante el desarrollo.
+
+---
+
+# Herramientas de Inteligencia Artificial
+
+Como apoyo durante el desarrollo se utilizó:
+
+## ChatGPT
+
+Utilizado como herramienta de apoyo para:
+
+* Investigación de conceptos.
+* Análisis y solución de errores.
+* Revisión de estructura del proyecto.
+* Mejora de documentación.
+* Apoyo en la elaboración del README.
+
+La inteligencia artificial fue utilizada como recurso complementario, manteniendo la comprensión y validación de las implementaciones realizadas dentro del proyecto.
