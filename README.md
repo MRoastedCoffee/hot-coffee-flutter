@@ -689,3 +689,128 @@ Respuesta mostrada al usuario
 
 Este diseño permite que cada módulo tenga una responsabilidad específica, facilitando la solución de errores, la incorporación de nuevas funciones y el mantenimiento del proyecto.
 
+---
+
+# Diagramas
+
+Para representar el funcionamiento interno y la interacción del usuario con la aplicación, se utilizaron diagramas realizados mediante **Mermaid**, una herramienta compatible con archivos Markdown en GitHub.
+
+---
+
+# Diagrama de clases
+
+El siguiente diagrama representa las principales clases y módulos que conforman la aplicación **Hot Coffee**, mostrando la relación entre las pantallas, servicios y componentes encargados del manejo de información.
+
+```mermaid
+classDiagram
+
+class Main {
+    +runApp()
+    +configurarAplicacion()
+}
+
+class Login {
+    +iniciarSesion()
+    +validarCredenciales()
+}
+
+class Registro {
+    +crearUsuario()
+    +validarDatos()
+}
+
+class Inicio {
+    +mostrarMenu()
+    +navegarPantallas()
+}
+
+class DatabaseHelper {
+    +crearBaseDatos()
+    +insertarUsuario()
+    +consultarUsuario()
+}
+
+class API {
+    +get()
+    +post()
+    +put()
+    +patch()
+    +delete()
+}
+
+class Archivo {
+    +crearRegistro()
+    +leerRegistro()
+}
+
+class Notificaciones {
+    +crearNotificacion()
+}
+
+class Terminos {
+    +mostrarTerminos()
+}
+
+Main --> Login
+Login --> DatabaseHelper
+Login --> Inicio
+
+Registro --> DatabaseHelper
+
+Inicio --> API
+Inicio --> Archivo
+Inicio --> Notificaciones
+Inicio --> Terminos
+```
+
+---
+
+# Diagrama de flujo de la aplicación
+
+El siguiente diagrama muestra el flujo principal de interacción desde que el usuario inicia la aplicación hasta el acceso a las diferentes funcionalidades disponibles.
+
+```mermaid
+flowchart TD
+
+A[Inicio de la aplicación] --> B[Pantalla de Login]
+
+B --> C{¿Usuario tiene cuenta?}
+
+C -->|No| D[Pantalla de Registro]
+
+D --> E[Guardar usuario en SQLite]
+
+E --> B
+
+C -->|Sí| F[Ingresar usuario y contraseña]
+
+F --> G{¿Datos correctos?}
+
+G -->|No| H[Mostrar mensaje de error]
+
+H --> B
+
+G -->|Sí| I[Pantalla principal]
+
+I --> J[Menú de opciones]
+
+J --> K[Consumir API REST]
+
+J --> L[Consultar registros locales]
+
+J --> M[Generar notificaciones]
+
+J --> N[Consultar términos y condiciones]
+
+K --> O[Mostrar resultados]
+
+L --> P[Mostrar información almacenada]
+
+M --> Q[Notificación del sistema]
+
+N --> R[Mostrar información]
+```
+
+---
+
+Estos diagramas permiten comprender de manera visual la estructura general de **Hot Coffee** y el recorrido que realiza un usuario dentro de la aplicación.
