@@ -344,3 +344,348 @@ Utilizado como herramienta de apoyo para:
 * Apoyo en la elaboración del README.
 
 La inteligencia artificial fue utilizada como recurso complementario, manteniendo la comprensión y validación de las implementaciones realizadas dentro del proyecto.
+
+---
+
+# Instalación y requisitos
+
+Para ejecutar correctamente **Hot Coffee** es necesario contar con las herramientas necesarias para compilar proyectos desarrollados con Flutter.
+
+La aplicación fue probada exitosamente en:
+
+* **Windows 11 (aplicación de escritorio).**
+* **Dispositivo Android físico mediante conexión USB.**
+
+---
+
+# Requisitos previos
+
+Antes de ejecutar el proyecto es necesario instalar los siguientes componentes:
+
+## Flutter SDK
+
+Flutter es el framework utilizado para desarrollar y ejecutar la aplicación.
+
+Descarga oficial:
+
+https://docs.flutter.dev/get-started/install
+
+Después de instalar Flutter, se recomienda verificar que la instalación sea correcta ejecutando:
+
+```bash
+flutter doctor
+```
+
+Este comando permite identificar si existe algún componente faltante para la ejecución.
+
+---
+
+## Dart SDK
+
+Dart es el lenguaje utilizado por Flutter para desarrollar la aplicación.
+
+El SDK de Dart viene incluido dentro de Flutter, por lo que no es necesario instalarlo por separado si Flutter fue configurado correctamente.
+
+---
+
+## Git
+
+Git es necesario para descargar el repositorio y administrar el código fuente.
+
+Descarga oficial:
+
+https://git-scm.com/downloads
+
+---
+
+# Requisitos para ejecutar en Windows
+
+Para compilar la aplicación como escritorio de Windows es necesario instalar:
+
+## Visual Studio
+
+Se requiere Visual Studio con las herramientas de desarrollo para C++.
+
+Componentes necesarios:
+
+* Desktop development with C++.
+* MSVC C++ Build Tools.
+* Windows SDK.
+
+Descarga oficial:
+
+https://visualstudio.microsoft.com/
+
+Después de instalar los componentes necesarios, Flutter debe reconocer la configuración mediante:
+
+```bash
+flutter doctor
+```
+
+---
+
+# Requisitos para ejecutar en Android
+
+Para ejecutar la aplicación en un dispositivo Android se requiere:
+
+* Android Studio.
+* Android SDK.
+* Controladores USB del dispositivo.
+* Cable USB para conexión física.
+
+Descarga oficial:
+
+https://developer.android.com/studio
+
+También es necesario activar en el dispositivo:
+
+* Opciones de desarrollador.
+* Depuración USB.
+
+Para comprobar que Flutter reconoce el dispositivo conectado:
+
+```bash
+flutter devices
+```
+
+---
+
+# Clonar el proyecto
+
+Después de instalar los requisitos, se debe descargar el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+```
+
+Ingresar a la carpeta del proyecto:
+
+```bash
+cd hot_coffee
+```
+
+---
+
+# Instalar dependencias
+
+Dentro de la carpeta del proyecto ejecutar:
+
+```bash
+flutter pub get
+```
+
+Este comando descarga todos los paquetes necesarios definidos dentro del archivo:
+
+```
+pubspec.yaml
+```
+
+---
+
+# Ejecución del proyecto
+
+## Ejecutar en Windows
+
+Verificar que Windows aparezca como dispositivo disponible:
+
+```bash
+flutter devices
+```
+
+Posteriormente ejecutar:
+
+```bash
+flutter run -d windows
+```
+
+La aplicación se abrirá como una aplicación de escritorio de Windows.
+
+---
+
+## Ejecutar en Android físico
+
+Conectar el dispositivo Android mediante cable USB y verificar que sea reconocido:
+
+```bash
+flutter devices
+```
+
+Después ejecutar:
+
+```bash
+flutter run -d <id_del_dispositivo>
+```
+
+Flutter compilará la aplicación y la instalará automáticamente en el dispositivo conectado.
+
+---
+
+# Plataformas probadas
+
+Durante el desarrollo se realizaron pruebas en las siguientes plataformas:
+
+| Plataforma | Estado |
+| --- | --- |
+| Windows 11 Desktop | ✅ Funcionando |
+| Android físico mediante USB | ✅ Funcionando |
+
+La aplicación fue probada verificando las principales funcionalidades:
+
+* Registro e inicio de sesión.
+* Persistencia de usuarios.
+* Consumo de API REST.
+* Generación de archivos locales.
+* Notificaciones.
+* Navegación entre pantallas.
+* Ejecución de componentes gráficos.
+
+---
+
+# Arquitectura del proyecto
+
+La arquitectura de **Hot Coffee** fue organizada buscando mantener una separación clara entre la interfaz gráfica, la lógica de negocio y el almacenamiento de información.
+
+Aunque Flutter permite desarrollar aplicaciones pequeñas con una estructura sencilla, el proyecto fue dividido en diferentes componentes para facilitar su mantenimiento, comprensión y futuras ampliaciones.
+
+La aplicación sigue una organización basada en capas:
+
+```
+Hot Coffee
+│
+├── Presentación (UI)
+│   ├── Pantallas
+│   ├── Widgets personalizados
+│   └── Componentes visuales
+│
+├── Lógica de aplicación
+│   ├── Validaciones
+│   ├── Procesos asíncronos
+│   └── Control de navegación
+│
+├── Servicios
+│   ├── Cliente REST
+│   ├── Notificaciones
+│   └── Manejo de archivos
+│
+└── Persistencia de datos
+    ├── SQLite
+    └── Registros locales
+```
+
+---
+
+## Capa de presentación
+
+Esta capa contiene todos los elementos relacionados con la interfaz gráfica y la interacción con el usuario.
+
+Incluye:
+
+* Pantalla de inicio de sesión.
+* Registro de usuarios.
+* Menú lateral (Drawer).
+* Pantallas de demostración de funcionalidades.
+* Widgets personalizados.
+* Componentes Material Design.
+
+Su objetivo es mostrar la información y recibir acciones del usuario sin encargarse directamente del almacenamiento o comunicación externa.
+
+---
+
+## Capa lógica
+
+Contiene las reglas y procesos principales de la aplicación.
+
+Entre sus responsabilidades se encuentran:
+
+* Validación de información ingresada.
+* Procesamiento de datos.
+* Ejecución de tareas asíncronas.
+* Control de eventos.
+* Manejo de navegación entre pantallas.
+
+Esta separación permite que la interfaz pueda modificarse sin afectar directamente la lógica interna.
+
+---
+
+## Capa de servicios
+
+Esta capa se encarga de la comunicación con recursos externos y funciones adicionales del sistema.
+
+Incluye:
+
+### Servicio REST
+
+Gestiona la comunicación con la API externa mediante solicitudes HTTP.
+
+Permite ejecutar:
+
+* Consultas.
+* Creación de datos.
+* Actualización de registros.
+* Eliminación de información.
+
+---
+
+### Servicio de archivos
+
+Responsable de generar y consultar archivos locales utilizados por la aplicación.
+
+Ejemplo:
+
+```
+registro.txt
+```
+
+Este archivo almacena información relacionada con los registros realizados dentro del sistema.
+
+---
+
+### Servicio de notificaciones
+
+Administra la creación de notificaciones del sistema operativo para generar recordatorios al usuario.
+
+---
+
+## Capa de persistencia
+
+La persistencia de información se realiza mediante SQLite.
+
+Esta capa permite:
+
+* Crear usuarios.
+* Consultar información registrada.
+* Validar credenciales.
+* Mantener datos después de cerrar la aplicación.
+
+La comunicación entre Flutter y SQLite se realiza mediante el paquete `sqflite`.
+
+---
+
+# Flujo general de funcionamiento
+
+El flujo principal de la aplicación se puede resumir de la siguiente manera:
+
+```
+Usuario
+  │
+  ▼
+Interfaz Flutter
+  │
+  ├──────────────► SQLite
+  │                 │
+  │                 ▼
+  │           Datos locales
+  │
+  ├──────────────► Servicios REST
+  │                 │
+  │                 ▼
+  │             JSONPlaceholder
+  │
+  ├──────────────► Archivos locales
+  │
+  ▼
+Respuesta mostrada al usuario
+```
+
+Este diseño permite que cada módulo tenga una responsabilidad específica, facilitando la solución de errores, la incorporación de nuevas funciones y el mantenimiento del proyecto.
+
